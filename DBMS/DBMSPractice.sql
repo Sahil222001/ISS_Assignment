@@ -8,10 +8,10 @@ Create table BMW(Id INT PRIMARY KEY,
   family VARCHAR(20));
   
 INSERT INTO BMW VALUES 
-(1, 'red', '380kmph', 'V8','Sedan'),
-(2, 'white', '200kmph', 'V6','SUV'),
-(3, 'blue', '340kmph', 'V8','Sedan'),
-(4, 'black', '300kmph', 'V8','SUV')
+(9, 'red', '380kmph', 'V4',null),
+(5, 'white', '200kmph', 'V4','SUV'),
+(6, 'blue', '340kmph', 'V6','Hatchback'),
+(7, 'black', '300kmph', 'V8','SUV')
 ;
 Select * from BMW;
 
@@ -70,6 +70,24 @@ insert into customer values (1,'Sahil'),
  
  SELECT * FROM orders NATURAL JOIN customer WHERE customer.customer_id=orders.order_id;
  
- 
+  
+use cars;
+SELECT COUNT(ID),family
+FROM BMW
+GROUP BY family;
+
+use cars;
+SELECT COUNT(ID),family
+FROM BMW
+GROUP BY family having count(ID)>2;
+
+SELECT ID,color, ISNULL(family) FROM BMW;
+SELECT ID,color, IFNULL(family,"Just BMW XD") FROM BMW;
+
+
+
+
+
+
 
  
